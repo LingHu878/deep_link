@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Hello World!!!</div>
+    <script>
+        const searchString = location.search.substring(1)
+        const strArray = searchString.split("&");
+        const paramObj = strArray.reduce((acc, queryStr) => {
+            const [key, value] = queryStr.split("=");
+            acc[key] = value;
+            return acc;
+        }, {})
+        const deepLinkUrl = paramObj['url'];
+        if (deepLinkUrl) {
+            window.location.href = deepLinkUrl;
+            console.log('Redirecting to deep link URL:', deepLinkUrl)
+        }
+    </script>
+</body>
+
+</html>
