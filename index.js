@@ -12,6 +12,10 @@ app.get("/deep-link", (req, res) => {
   res.send(indexHtml);
 });
 
+app.get("/", (req, res) => {
+  res.status(200).send("hello world!");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
